@@ -3,10 +3,36 @@ module Api
     class HobbiesController < ApplicationController
       skip_before_action :verify_authenticity_token
 
+      # {
+      #   'update_id' => 394352518,
+      #   'message'   =>
+      #     {
+      #       'message_id' => 5,
+      #       'from'       =>
+      #         {
+      #           'id'            => 160589750,
+      #           'is_bot'        => false,
+      #           'first_name'    => 'Dmitry',
+      #           'last_name'     => 'Sadovnikov',
+      #           'username'      => 'DmitrySadovnikov',
+      #           'language_code' => 'en-RU'
+      #         },
+      #       'chat'       =>
+      #         {
+      #           'id'         => 160589750,
+      #           'first_name' => 'Dmitry',
+      #           'last_name'  => 'Sadovnikov',
+      #           'username'   => 'DmitrySadovnikov',
+      #           'type'       => 'private'
+      #         },
+      #       'date'       => 1527367962,
+      #       'text'       => 'привет'
+      #     }
+      # }
       def message
         Hobby::MessageServer.new.call(
-          text:    params[:text],
-          chat_id: params.dig(:chat, :id)
+          text:    params.dig(:message, :text),
+          chat_id: params.dig(:message, :chat, :id)
         )
         render json: {}, status: :ok
       end
