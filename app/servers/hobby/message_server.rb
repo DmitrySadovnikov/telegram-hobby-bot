@@ -4,9 +4,9 @@ class Hobby::MessageServer
   def call(text:, chat_id:)
     text =
       case text.downcase
-      when 'привет' then 'Ну привет'
-      when 'all'    then  Hobby.all.pluck(:title)
-      else                Hobby.all.pluck(:title).sample
+      when /привет/i then 'Ну привет'
+      when 'all'     then  Hobby.all.pluck(:title)
+      else                 Hobby.all.pluck(:title).sample
       end
 
     post chat_id: chat_id, text: text
