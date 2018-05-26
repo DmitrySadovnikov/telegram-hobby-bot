@@ -1,3 +1,5 @@
+require 'net/http'
+
 class Hobby::MessageServer
   def call(text:, chat_id:)
     text =
