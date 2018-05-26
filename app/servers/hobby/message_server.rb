@@ -5,7 +5,7 @@ class Hobby::MessageServer
     text =
       case text.downcase
       when /привет/i then 'Ну привет'
-      when 'all'     then  Hobby.all.pluck(:title)
+      when 'all'     then  Hobby.all.pluck(:title).join("\n")
       else                 Hobby.all.pluck(:title).sample
       end
 
