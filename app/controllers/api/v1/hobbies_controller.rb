@@ -1,6 +1,8 @@
 module Api
   module V1
     class HobbiesController < ApplicationController
+      skip_before_action :verify_authenticity_token
+
       def message
         Hobby::MessageServer.new.call(
           text:    params[:text],
