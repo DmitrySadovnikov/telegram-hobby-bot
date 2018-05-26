@@ -30,6 +30,8 @@ module Api
       #     }
       # }
       def message
+        return render json: {}, status: :ok unless params[:message]
+
         Hobby::MessageServer.new.call(
           text:    params.dig(:message, :text),
           chat_id: params.dig(:message, :chat, :id)
