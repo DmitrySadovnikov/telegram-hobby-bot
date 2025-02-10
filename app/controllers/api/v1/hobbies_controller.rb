@@ -10,7 +10,7 @@ module Api
       #       'message_id' => 5,
       #       'from'       =>
       #         {
-      #           'id'            => 160589750,
+      #           'id'            => 123456789,
       #           'is_bot'        => false,
       #           'first_name'    => 'Dmitry',
       #           'last_name'     => 'Sadovnikov',
@@ -19,7 +19,7 @@ module Api
       #         },
       #       'chat'       =>
       #         {
-      #           'id'         => 160589750,
+      #           'id'         => 123456789,
       #           'first_name' => 'Dmitry',
       #           'last_name'  => 'Sadovnikov',
       #           'username'   => 'DmitrySadovnikov',
